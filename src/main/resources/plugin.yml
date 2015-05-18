@@ -1,0 +1,69 @@
+name: AdminToolboxRemake
+main: com.github.pocketkid2.admintoolbox.AdminToolboxPlugin
+version: 0.2.0
+author: Pocketkid2
+description: Type /atb to open an inventory menu for handy features!
+commands:
+    admintoolbox:
+        description: Opens the toolbox
+        usage: /<command> [wand|on|off|toggle]
+        permission: admintoolbox.open
+        aliases: [atb]
+permissions:
+    admintoolbox.access:
+        description: Allows you to use the command, and open the toolbox
+        default: op
+    admintoolbox.use.all:
+        description: Allows you to use both the safe tools and the dangerous tools
+        default: op
+        children:
+            admintoolbox.use.safe: true
+            admintoolbox.use.danger: true
+    admintoolbox.use.safe:
+        description: Allows you to open the toolbox
+        default: op
+        children:
+            admintoolbox.use.gamemode: true
+            admintoolbox.use.time: true
+            admintoolbox.use.weather: true
+            admintoolbox.use.nightvision: true
+            admintoolbox.use.invisibility: true
+            admintoolbox.use.spawn: true
+            admintoolbox.use.enderchest: true
+            admintoolbox.use.crafting: true
+    admintoolbox.use.danger:
+        description: Allows you to open the toolbox
+        default: op
+        children:
+            admintoolbox.use.stop: true
+            admintoolbox.use.reload: true
+    admintoolbox.use.gamemode:
+        description: Allows you to use the gamemode tools (safe)
+        default: op
+    admintoolbox.use.time:
+        description: Allows you to use the time tools (safe)
+        default: op
+    admintoolbox.use.weather:
+        description: Allows you to use the weather tools (safe)
+        default: op
+    admintoolbox.use.nightvision:
+        description: Allows you to use the nightvision tools (safe)
+        default: op
+    admintoolbox.use.invisibility:
+        description: Allows you to use the invisibility tools (safe)
+        default: op
+    admintoolbox.use.spawn:
+        description: Allows you to use the spawn tool (safe)
+        default: op
+    admintoolbox.use.enderchest:
+        description: Allows you to use the portable enderchest tool (safe)
+        default: op
+    admintoolbox.use.crafting:
+        description: Allows you to use the portable crafting tool (safe)
+        default: op
+    admintoolbox.use.stop:
+        description: Allows you to use the server stop tool (dangerous)
+        default: op
+    admintoolbox.use.reload:
+        description: Allows you to use the server reload tool (dangerous)
+        default: op

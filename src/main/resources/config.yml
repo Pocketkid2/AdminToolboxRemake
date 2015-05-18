@@ -1,0 +1,8 @@
+# Set this to true if you want Admin Toolbox to log all uses to the console (so you can see who's using it for what)
+console-log: false
+
+# Set the item ID of the item you want as the Admin Toolbox wand (right click to use)
+wand-id: 369 # <- Blaze rod
+
+# Set this to false if you want the toolbox inventory to stay open after you click an item.
+close-toolbox: true
