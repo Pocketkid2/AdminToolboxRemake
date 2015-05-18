@@ -20,7 +20,7 @@ permissions:
             admintoolbox.use.safe: true
             admintoolbox.use.danger: true
     admintoolbox.use.safe:
-        description: Allows you to open the toolbox
+        description: Allows you to use all the safe tools
         default: op
         children:
             admintoolbox.use.gamemode: true
@@ -32,7 +32,7 @@ permissions:
             admintoolbox.use.enderchest: true
             admintoolbox.use.crafting: true
     admintoolbox.use.danger:
-        description: Allows you to open the toolbox
+        description: Allows you to use all the dangerous tools
         default: op
         children:
             admintoolbox.use.stop: true

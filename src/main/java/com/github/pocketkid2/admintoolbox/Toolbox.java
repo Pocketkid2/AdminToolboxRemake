@@ -365,7 +365,7 @@ public class Toolbox {
 			}
 
 			@Override
-			public void execute(Player player) {
+			public void execute(final Player player) {
 				new BukkitRunnable() {
 
 					@Override
@@ -392,7 +392,7 @@ public class Toolbox {
 			}
 
 			@Override
-			public void execute(Player player) {
+			public void execute(final Player player) {
 				new BukkitRunnable() {
 
 					@Override
@@ -419,7 +419,7 @@ public class Toolbox {
 			}
 
 			@Override
-			public void execute(Player player) {
+			public void execute(final Player player) {
 				new BukkitRunnable() {
 
 					@Override
@@ -447,7 +447,7 @@ public class Toolbox {
 			}
 
 			@Override
-			public void execute(Player player) {
+			public void execute(final Player player) {
 				new BukkitRunnable() {
 
 					@Override
@@ -460,67 +460,6 @@ public class Toolbox {
 			}
 
 		});
-
-		/*-
-		// ----------------
-		// PORTABLE FURNACE
-		// Opens a furnace that you can use, without needing the actual block
-		// NOTE: Items are lost when you close this inventory
-		// ----------------
-		tools.add(new Tool() {
-
-			@Override
-			public void setup() {
-				icon = Material.FURNACE;
-				label = ChatColor.BLUE + "Portable Furnace";
-			}
-
-			@Override
-			public void execute(Player player) {
-				new BukkitRunnable() {
-
-					@Override
-					public void run() {
-						Inventory inv = Bukkit.createInventory(player, InventoryType.FURNACE, "Portable Furnace");
-						player.closeInventory();
-						player.openInventory(inv);
-					}
-
-				}.runTaskLater(plugin, 1);
-			}
-
-		});
-
-		// ----------------
-		// PORTABLE BREWING
-		// Opens a brewing stand that you can use, without needing the actual
-		// block
-		// NOTE: Items are lost when you close this inventory
-		// ----------------
-		tools.add(new Tool() {
-
-			@Override
-			public void setup() {
-				icon = Material.BREWING_STAND_ITEM;
-				label = ChatColor.BLUE + "Portable Brewing Stand";
-			}
-
-			@Override
-			public void execute(Player player) {
-				new BukkitRunnable() {
-
-					@Override
-					public void run() {
-						Inventory inv = Bukkit.createInventory(player, InventoryType.BREWING, "Portable Brewing");
-						player.closeInventory();
-						player.openInventory(inv);
-					}
-
-				}.runTaskLater(plugin, 1);
-			}
-
-		});
-		 */
 
 		// Before we go, call all the setup() methods
 		for (Tool t : tools) {

@@ -1,7 +1,6 @@
 package com.github.pocketkid2.admintoolbox.listeners;
 
-import net.md_5.bungee.api.ChatColor;
-
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,7 +28,7 @@ public class InventoryListener implements Listener {
 				// Cancel the click
 				event.setCancelled(true);
 
-				Player player = (Player) event.getWhoClicked();
+				final Player player = (Player) event.getWhoClicked();
 
 				// Look through all the tools
 				for (Tool t : plugin.toolbox.tools) {
