@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Difficulty;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -186,6 +187,90 @@ public class Toolbox {
 			@Override
 			public void execute(Player player) {
 				player.getWorld().setTime(18000);
+			}
+
+		});
+
+		// -------------------
+		// DIFFICULTY PEACEFUL
+		// Sets the difficulty of your world to peaceful
+		// -------------------
+		tools.add(new Tool() {
+
+			@Override
+			public void setup() {
+				icon = Material.SKULL_ITEM;
+				label = ChatColor.DARK_PURPLE + "Difficulty Peaceful";
+				permission = "admintoolbox.use.difficulty";
+
+			}
+
+			@Override
+			public void execute(Player player) {
+				player.getWorld().setDifficulty(Difficulty.PEACEFUL);
+			}
+
+		});
+
+		// -------------------
+		// DIFFICULTY EASY
+		// Sets the difficulty of your world to peaceful
+		// -------------------
+		tools.add(new Tool() {
+
+			@Override
+			public void setup() {
+				icon = Material.SKULL_ITEM;
+				label = ChatColor.DARK_PURPLE + "Difficulty Easy";
+				permission = "admintoolbox.use.difficulty";
+
+			}
+
+			@Override
+			public void execute(Player player) {
+				player.getWorld().setDifficulty(Difficulty.EASY);
+			}
+
+		});
+
+		// -------------------
+		// DIFFICULTY NORMAL
+		// Sets the difficulty of your world to peaceful
+		// -------------------
+		tools.add(new Tool() {
+
+			@Override
+			public void setup() {
+				icon = Material.SKULL_ITEM;
+				label = ChatColor.DARK_PURPLE + "Difficulty Normal";
+				permission = "admintoolbox.use.difficulty";
+
+			}
+
+			@Override
+			public void execute(Player player) {
+				player.getWorld().setDifficulty(Difficulty.NORMAL);
+			}
+
+		});
+
+		// -------------------
+		// DIFFICULTY HARD
+		// Sets the difficulty of your world to peaceful
+		// -------------------
+		tools.add(new Tool() {
+
+			@Override
+			public void setup() {
+				icon = Material.SKULL_ITEM;
+				label = ChatColor.DARK_PURPLE + "Difficulty Hard";
+				permission = "admintoolbox.use.difficulty";
+
+			}
+
+			@Override
+			public void execute(Player player) {
+				player.getWorld().setDifficulty(Difficulty.HARD);
 			}
 
 		});

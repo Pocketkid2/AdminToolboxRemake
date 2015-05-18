@@ -25,6 +25,7 @@ permissions:
         children:
             admintoolbox.use.gamemode: true
             admintoolbox.use.time: true
+            admintoolbox.use.difficulty: true
             admintoolbox.use.weather: true
             admintoolbox.use.nightvision: true
             admintoolbox.use.invisibility: true
@@ -42,6 +43,9 @@ permissions:
         default: op
     admintoolbox.use.time:
         description: Allows you to use the time tools (safe)
+        default: op
+    admintoolbox.use.difficulty:
+        description: Allows you to use the difficulty tools (safe)
         default: op
     admintoolbox.use.weather:
         description: Allows you to use the weather tools (safe)
