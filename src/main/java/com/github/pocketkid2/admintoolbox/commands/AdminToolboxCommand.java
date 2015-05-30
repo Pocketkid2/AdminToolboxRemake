@@ -1,6 +1,5 @@
 package com.github.pocketkid2.admintoolbox.commands;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -8,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.pocketkid2.admintoolbox.AdminToolboxPlugin;
+import com.github.pocketkid2.admintoolbox.utils.Messages;
 
 public class AdminToolboxCommand implements CommandExecutor {
 
@@ -22,13 +22,13 @@ public class AdminToolboxCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		// Check for player
 		if (!(sender instanceof Player)) {
-			sender.sendMessage(ChatColor.RED + "You must be a player!");
+			sender.sendMessage(Messages.MUST_BE_PLAYER);
 			return true;
 		}
 
 		// Check for permission
 		if (!(sender.hasPermission("admintoolbox.access"))) {
-			sender.sendMessage(ChatColor.RED + "You don't have permission for that!");
+			sender.sendMessage(Messages.NO_PERM);
 			return true;
 		}
 
@@ -48,34 +48,34 @@ public class AdminToolboxCommand implements CommandExecutor {
 			if (args[0].equalsIgnoreCase("wand")) {
 				// Give them a wand
 				player.getInventory().addItem(new ItemStack(plugin.material, 1));
-				player.sendMessage(ChatColor.AQUA + "Gave you an AdminToolbox wand!");
+				player.sendMessage(Messages.GOT_WAND);
 				return true;
 			} else if (args[0].equalsIgnoreCase("on")) {
 				// If it's already on
 				if (plugin.isWandOn(player)) {
 					// Tell them
-					player.sendMessage(ChatColor.AQUA + "The wand is already enabled!");
+					player.sendMessage(Messages.WAND_ALREADY_ENABLED);
 					return true;
 				} else {
 					// Otherwise, turn it on and tell them
 					plugin.turnWandOn(player);
-					player.sendMessage(ChatColor.AQUA + "The wand has been enabled!");
+					player.sendMessage(Messages.WAND_ENABLED);
 				}
 			} else if (args[0].equalsIgnoreCase("off")) {
 				// If it's already off
 				if (!plugin.isWandOn(player)) {
 					// Tell them
-					player.sendMessage(ChatColor.AQUA + "The wand is already disabled!");
+					player.sendMessage(Messages.WAND_ALREADY_DISABLED);
 					return true;
 				} else {
 					// Otherwise, turn it on and tell them
 					plugin.turnWandOff(player);
-					player.sendMessage(ChatColor.AQUA + "The wand has been disabled!");
+					player.sendMessage(Messages.WAND_DISABLED);
 				}
 			} else if (args[0].equalsIgnoreCase("toggle")) {
 				// Toggle it
 				plugin.toggleWand(player);
-				player.sendMessage(ChatColor.AQUA + "The wand has been toggled " + (plugin.isWandOn(player) ? "on" : "off") + "!");
+				player.sendMessage(plugin.isWandOn(player) ? Messages.WAND_ENABLED : Messages.WAND_DISABLED);
 			}
 		}
 		return true;

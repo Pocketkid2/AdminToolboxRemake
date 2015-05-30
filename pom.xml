@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.pocketkid2</groupId>
   <artifactId>AdminToolboxRemake</artifactId>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
   <name>AdminToolboxRemake</name>
   <build>
       <plugins>
@@ -17,18 +17,19 @@
       </plugins>
    </build>
    <repositories>
-       <repository>
-           <id>spigot-repo</id>
-           <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
-       </repository>
+       <!-- Contains 1.8 bukkit and spigot API's! -->
+	   <repository>
+		   <id>spigot-repo</id>
+		   <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+	   </repository>
    </repositories>
    <dependencies>
-       <dependency>
-           <groupId>org.bukkit</groupId>
-           <artifactId>bukkit</artifactId>
-           <version>1.8.3-R0.1-SNAPSHOT</version>
-           <type>jar</type>
-           <scope>provided</scope>
-       </dependency>
+       <!-- Contains Bukkit 1.8.6 API -->
+	   <dependency>
+		   <groupId>org.bukkit</groupId>
+		   <artifactId>bukkit</artifactId>
+		   <version>1.8.6-R0.1-SNAPSHOT</version>
+		   <scope>provided</scope>
+	   </dependency>
    </dependencies>
 </project>

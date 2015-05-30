@@ -1,7 +1,6 @@
 package com.github.pocketkid2.admintoolbox;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
@@ -14,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.github.pocketkid2.admintoolbox.commands.AdminToolboxCommand;
 import com.github.pocketkid2.admintoolbox.listeners.InventoryListener;
 import com.github.pocketkid2.admintoolbox.listeners.WandUseListener;
+import com.github.pocketkid2.admintoolbox.utils.Messages;
 
 public class AdminToolboxPlugin extends JavaPlugin {
 
@@ -72,7 +72,7 @@ public class AdminToolboxPlugin extends JavaPlugin {
 	public void activate(Player player) {
 		// Check for permission
 		if (!(player.hasPermission("admintoolbox.access"))) {
-			player.sendMessage(ChatColor.RED + "You can't open the toolbox!");
+			player.sendMessage(Messages.NO_PERM);
 			return;
 		}
 
@@ -88,7 +88,7 @@ public class AdminToolboxPlugin extends JavaPlugin {
 		}
 		// If toolbox is empty, notify the player
 		if (isEmpty(inv)) {
-			player.sendMessage(ChatColor.RED + "You don't have access to any tools!");
+			player.sendMessage(Messages.NO_PERM);
 		} else {
 			// Show it to the player!
 			player.openInventory(inv);
