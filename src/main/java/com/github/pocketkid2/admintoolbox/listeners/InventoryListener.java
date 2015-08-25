@@ -9,6 +9,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import com.github.pocketkid2.admintoolbox.AdminToolboxPlugin;
 import com.github.pocketkid2.admintoolbox.Tool;
+import com.github.pocketkid2.admintoolbox.Toolbox;
 
 public class InventoryListener implements Listener {
 
@@ -34,6 +35,12 @@ public class InventoryListener implements Listener {
 				for (Tool t : plugin.toolbox.tools) {
 					// If the item matches
 					if (t.item().equals(event.getCurrentItem())) {
+						// Check for a broken item
+						if (t.getLabel().endsWith(Toolbox.broken)) {
+							// Disable it
+							player.sendMessage(ChatColor.RED + "That item is broken, you cannot use it now!");
+							return;
+						}
 						// Execute it
 						t.execute(player);
 

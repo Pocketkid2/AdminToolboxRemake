@@ -3,11 +3,16 @@ package com.github.pocketkid2.admintoolbox;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Difficulty;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.AnvilInventory;
+import org.bukkit.inventory.BrewerInventory;
+import org.bukkit.inventory.FurnaceInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -25,6 +30,9 @@ public class Toolbox {
 	public Toolbox(AdminToolboxPlugin pl) {
 		plugin = pl;
 	}
+
+	// The suffix to add to broken or unimplemented items
+	public static String broken = ChatColor.DARK_RED + "(BROKEN)";
 
 	// This method is where all the tools are added
 	public Toolbox setup() {
@@ -539,6 +547,125 @@ public class Toolbox {
 					public void run() {
 						player.closeInventory();
 						player.openInventory(player.getEnderChest());
+					}
+
+				}.runTaskLater(plugin, 1);
+			}
+
+		});
+
+		// -------------------
+		// PORTABLE ENCHANTING
+		// Opens an anvil screen without needing an anvil
+		// -------------------
+		tools.add(new Tool() {
+
+			@Override
+			public void setup() {
+				icon = Material.ENCHANTMENT_TABLE;
+				label = ChatColor.BLUE + "Portable Enchanting";
+				label = label + " " + Toolbox.broken; // TODO Fix or Remove
+				permission = "admintoolbox.use.enchanting";
+			}
+
+			@Override
+			public void execute(Player player) {
+				new BukkitRunnable() {
+
+					@Override
+					public void run() {
+						player.closeInventory();
+						player.openEnchanting(null, true);
+					}
+
+				}.runTaskLater(plugin, 1);
+			}
+
+		});
+
+		// --------------
+		// PORTABLE ANVIL
+		// Opens an anvil screen without needing an anvil
+		// --------------
+		tools.add(new Tool() {
+
+			@Override
+			public void setup() {
+				icon = Material.ANVIL;
+				label = ChatColor.BLUE + "Portable Anvil";
+				label = label + " " + Toolbox.broken; // TODO Fix or Remove
+				permission = "admintoolbox.use.anvil";
+			}
+
+			@Override
+			public void execute(Player player) {
+				new BukkitRunnable() {
+
+					@Override
+					public void run() {
+						player.closeInventory();
+						AnvilInventory inv = (AnvilInventory) Bukkit.createInventory(player, InventoryType.ANVIL, "Portable Anvil");
+						player.openInventory(inv);
+					}
+
+				}.runTaskLater(plugin, 1);
+			}
+
+		});
+
+		// ----------------
+		// PORTABLE FURNACE
+		// Opens an anvil screen without needing an anvil
+		// ----------------
+		tools.add(new Tool() {
+
+			@Override
+			public void setup() {
+				icon = Material.FURNACE;
+				label = ChatColor.BLUE + "Portable Furnace";
+				label = label + " " + Toolbox.broken; // TODO Fix or Remove
+				permission = "admintoolbox.use.furnace";
+			}
+
+			@Override
+			public void execute(Player player) {
+				new BukkitRunnable() {
+
+					@Override
+					public void run() {
+						player.closeInventory();
+						FurnaceInventory inv = (FurnaceInventory) Bukkit.createInventory(player, InventoryType.FURNACE, "Portable Furnace");
+						player.openInventory(inv);
+					}
+
+				}.runTaskLater(plugin, 1);
+			}
+
+		});
+
+		// ----------------
+		// PORTABLE BREWING
+		// Opens an anvil screen without needing an anvil
+		// ----------------
+		tools.add(new Tool() {
+
+			@Override
+			public void setup() {
+				icon = Material.BREWING_STAND_ITEM;
+				label = ChatColor.BLUE + "Portable Brewing";
+				label = label + " " + Toolbox.broken; // TODO Fix or Remove
+				permission = "admintoolbox.use.brewing";
+			}
+
+			@Override
+			public void execute(Player player) {
+				new BukkitRunnable() {
+
+					@Override
+					public void run() {
+						player.closeInventory();
+						BrewerInventory inv = (BrewerInventory) Bukkit.createInventory(player, InventoryType.BREWING, "Portable Brewing");
+						player.openInventory(inv);
 					}
 
 				}.runTaskLater(plugin, 1);

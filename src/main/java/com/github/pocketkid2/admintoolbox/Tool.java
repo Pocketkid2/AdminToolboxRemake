@@ -47,4 +47,9 @@ public abstract class Tool {
 		// And return it
 		return stack;
 	}
+
+	// Get the label of this tool
+	public String getLabel() {
+		return label;
+	}
 }

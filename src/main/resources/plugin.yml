@@ -32,6 +32,10 @@ permissions:
             admintoolbox.use.spawn: true
             admintoolbox.use.enderchest: true
             admintoolbox.use.crafting: true
+            admintoolbox.use.enchanting: true
+            admintoolbox.use.anvil: true
+            admintoolbox.use.furnace: true
+            admintoolbox.use.brewing: true
     admintoolbox.use.danger:
         description: Allows you to use all the dangerous tools
         default: op
@@ -64,6 +68,18 @@ permissions:
         default: op
     admintoolbox.use.crafting:
         description: Allows you to use the portable crafting tool (safe)
+        default: op
+    admintoolbox.use.enchanting:
+        description: Allows you to use the portable enchanting tool (safe)
+        default: op
+    admintoolbox.use.anvil:
+        description: Allows you to use the portable anvil tool (safe)
+        default: op
+    admintoolbox.use.furnace:
+        description: Allows you to use the portable furnace tool (safe)
+        default: op
+    admintoolbox.use.brewing:
+        description: Allows you to use the portable brewing tool (safe)
         default: op
     admintoolbox.use.stop:
         description: Allows you to use the server stop tool (dangerous)

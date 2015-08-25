@@ -3,7 +3,6 @@ package com.github.pocketkid2.admintoolbox;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -77,7 +76,9 @@ public class AdminToolboxPlugin extends JavaPlugin {
 		}
 
 		// Assemble the inventory
-		Inventory inv = Bukkit.createInventory(player, InventoryType.CHEST, "Admin Toolbox");
+		int rows = (int) Math.ceil(toolbox.tools.size() / 9.0D);
+
+		Inventory inv = Bukkit.createInventory(player, rows * 9, "Admin Toolbox");
 		// For every tool in the toolbox
 		for (Tool t : toolbox.tools) {
 			// If we have access to that tool
