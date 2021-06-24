@@ -47,7 +47,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.GRASS;
+				icon = Material.COOKED_PORKCHOP;
 				label = ChatColor.GREEN + "Survival Mode";
 				permission = "admintoolbox.use.gamemode";
 			}
@@ -67,7 +67,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.GRASS;
+				icon = Material.GRASS_BLOCK;
 				label = ChatColor.GREEN + "Creative Mode";
 				permission = "admintoolbox.use.gamemode";
 			}
@@ -87,7 +87,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.GRASS;
+				icon = Material.IRON_SWORD;
 				label = ChatColor.GREEN + "Adventure Mode";
 				permission = "admintoolbox.use.gamemode";
 			}
@@ -107,7 +107,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.GRASS;
+				icon = Material.ELYTRA;
 				label = ChatColor.GREEN + "Spectator Mode";
 				permission = "admintoolbox.use.gamemode";
 			}
@@ -127,7 +127,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.WATCH;
+				icon = Material.CLOCK;
 				label = ChatColor.GOLD + "Time Morning";
 				permission = "admintoolbox.use.time";
 			}
@@ -147,7 +147,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.WATCH;
+				icon = Material.CLOCK;
 				label = ChatColor.GOLD + "Time Noon";
 				permission = "admintoolbox.use.time";
 			}
@@ -167,7 +167,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.WATCH;
+				icon = Material.CLOCK;
 				label = ChatColor.GOLD + "Time Evening";
 				permission = "admintoolbox.use.time";
 			}
@@ -187,7 +187,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.WATCH;
+				icon = Material.CLOCK;
 				label = ChatColor.GOLD + "Time Midnight";
 				permission = "admintoolbox.use.time";
 			}
@@ -207,7 +207,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.SKULL_ITEM;
+				icon = Material.PLAYER_HEAD;
 				label = ChatColor.DARK_PURPLE + "Difficulty Peaceful";
 				permission = "admintoolbox.use.difficulty";
 
@@ -228,7 +228,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.SKULL_ITEM;
+				icon = Material.ZOMBIE_HEAD;
 				label = ChatColor.DARK_PURPLE + "Difficulty Easy";
 				permission = "admintoolbox.use.difficulty";
 
@@ -249,7 +249,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.SKULL_ITEM;
+				icon = Material.CREEPER_HEAD;
 				label = ChatColor.DARK_PURPLE + "Difficulty Normal";
 				permission = "admintoolbox.use.difficulty";
 
@@ -270,7 +270,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.SKULL_ITEM;
+				icon = Material.WITHER_SKELETON_SKULL;
 				label = ChatColor.DARK_PURPLE + "Difficulty Hard";
 				permission = "admintoolbox.use.difficulty";
 
@@ -311,7 +311,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.DOUBLE_PLANT;
+				icon = Material.SUNFLOWER;
 				label = ChatColor.GRAY + "Weather Sun";
 				permission = "admintoolbox.use.weather";
 			}
@@ -353,7 +353,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.SNOW_BALL;
+				icon = Material.SNOWBALL;
 				label = ChatColor.GRAY + "Weather Thunder";
 				permission = "admintoolbox.use.weather";
 			}
@@ -367,81 +367,52 @@ public class Toolbox {
 		});
 
 		// --------------
-		// NIGHTVISION ON
-		// Gives you a night vision potion effect
+		// NIGHTVISION TOGGLE
+		// Toggles on/off a night vision potion effect
 		// --------------
 		tools.add(new Tool() {
 
 			@Override
 			public void setup() {
-				icon = Material.EYE_OF_ENDER;
-				label = ChatColor.RED + "Night Vision On";
+				icon = Material.ENDER_EYE;
+				label = ChatColor.RED + "Toggle Night Vision";
 				permission = "admintoolbox.use.nightvision";
 			}
 
 			@Override
 			public void execute(Player player) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 99999999, 0, false, false), true);
+				if (player.hasPotionEffect(PotionEffectType.NIGHT_VISION)) {
+					player.removePotionEffect(PotionEffectType.NIGHT_VISION);
+				} else {
+					player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 99999999, 0, false, false));
+				}
+
 			}
 
 		});
 
 		// --------------
-		// NIGHTVISION OFF
-		// Takes away the night vision potion effect
+		// INVISIBILITY TOGGLE
+		// Toggles on/off an invisibility potion effect
 		// --------------
 		tools.add(new Tool() {
 
 			@Override
 			public void setup() {
-				icon = Material.EYE_OF_ENDER;
-				label = ChatColor.RED + "Night Vision Off";
-				permission = "admintoolbox.use.nightvision";
-			}
-
-			@Override
-			public void execute(Player player) {
-				player.removePotionEffect(PotionEffectType.NIGHT_VISION);
-			}
-		});
-
-		// --------------
-		// INVISIBILITY ON
-		// Gives you an invisibility potion effect
-		// --------------
-		tools.add(new Tool() {
-
-			@Override
-			public void setup() {
-				icon = Material.MAGMA_CREAM;
-				label = ChatColor.RED + "Invisibility On";
+				icon = Material.ENDER_PEARL;
+				label = ChatColor.RED + "Toggle Invisibility";
 				permission = "admintoolbox.use.invisibility";
 			}
 
 			@Override
 			public void execute(Player player) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 99999999, 0, false, false), true);
+				if (player.hasPotionEffect(PotionEffectType.INVISIBILITY)) {
+					player.removePotionEffect(PotionEffectType.INVISIBILITY);
+				} else {
+					player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 99999999, 0, false, false));
+				}
 			}
 
-		});
-
-		// --------------
-		// INVISIBILITY OFF
-		// Takes away the invisibility potion effect
-		// --------------
-		tools.add(new Tool() {
-
-			@Override
-			public void setup() {
-				icon = Material.MAGMA_CREAM;
-				label = ChatColor.RED + "Invisibility Off";
-				permission = "admintoolbox.use.invisibility";
-			}
-
-			@Override
-			public void execute(Player player) {
-				player.removePotionEffect(PotionEffectType.INVISIBILITY);
-			}
 		});
 
 		// -----------------
@@ -452,7 +423,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.SLIME_BALL;
+				icon = Material.COMMAND_BLOCK;
 				label = ChatColor.BOLD + "Reload the Server";
 				permission = "admintoolbox.use.reload";
 			}
@@ -479,7 +450,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.SLIME_BALL;
+				icon = Material.BARRIER;
 				label = ChatColor.BOLD + "Stop the Server";
 				permission = "admintoolbox.use.stop";
 			}
@@ -506,7 +477,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.WORKBENCH;
+				icon = Material.CRAFTING_TABLE;
 				label = ChatColor.BLUE + "Portable Crafting Table";
 				permission = "admintoolbox.use.crafting";
 			}
@@ -562,7 +533,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.ENCHANTMENT_TABLE;
+				icon = Material.ENCHANTING_TABLE;
 				label = ChatColor.BLUE + "Portable Enchanting";
 				label = label + " " + Toolbox.broken; // TODO Fix or Remove
 				permission = "admintoolbox.use.enchanting";
@@ -604,7 +575,8 @@ public class Toolbox {
 					@Override
 					public void run() {
 						player.closeInventory();
-						AnvilInventory inv = (AnvilInventory) Bukkit.createInventory(player, InventoryType.ANVIL, "Portable Anvil");
+						AnvilInventory inv = (AnvilInventory) Bukkit.createInventory(player, InventoryType.ANVIL,
+								"Portable Anvil");
 						player.openInventory(inv);
 					}
 
@@ -634,7 +606,8 @@ public class Toolbox {
 					@Override
 					public void run() {
 						player.closeInventory();
-						FurnaceInventory inv = (FurnaceInventory) Bukkit.createInventory(player, InventoryType.FURNACE, "Portable Furnace");
+						FurnaceInventory inv = (FurnaceInventory) Bukkit.createInventory(player, InventoryType.FURNACE,
+								"Portable Furnace");
 						player.openInventory(inv);
 					}
 
@@ -651,7 +624,7 @@ public class Toolbox {
 
 			@Override
 			public void setup() {
-				icon = Material.BREWING_STAND_ITEM;
+				icon = Material.BREWING_STAND;
 				label = ChatColor.BLUE + "Portable Brewing";
 				label = label + " " + Toolbox.broken; // TODO Fix or Remove
 				permission = "admintoolbox.use.brewing";
@@ -664,7 +637,8 @@ public class Toolbox {
 					@Override
 					public void run() {
 						player.closeInventory();
-						BrewerInventory inv = (BrewerInventory) Bukkit.createInventory(player, InventoryType.BREWING, "Portable Brewing");
+						BrewerInventory inv = (BrewerInventory) Bukkit.createInventory(player, InventoryType.BREWING,
+								"Portable Brewing");
 						player.openInventory(inv);
 					}
 

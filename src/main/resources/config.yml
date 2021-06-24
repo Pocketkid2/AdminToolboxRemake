@@ -2,7 +2,7 @@
 console-log: false
 
 # Set the item ID of the item you want as the Admin Toolbox wand (right click to use)
-wand-id: 369 # <- Blaze rod
+wand-id: BLAZE_ROD
 
 # Set this to false if you want the toolbox inventory to stay open after you click an item.
 close-toolbox: true

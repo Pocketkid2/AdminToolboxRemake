@@ -1,7 +1,9 @@
-name: AdminToolboxRemake
-main: com.github.pocketkid2.admintoolbox.AdminToolboxPlugin
-version: 0.2.1
+name: ${name}
+version: ${version}
+main: ${groupId}.${artifactId}.AdminToolboxPlugin
+
 author: Pocketkid2
+api-version: 1.17
 description: Type /atb to open an inventory menu for handy features!
 commands:
     admintoolbox:

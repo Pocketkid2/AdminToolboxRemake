@@ -23,48 +23,47 @@ public class InventoryListener implements Listener {
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent event) {
 		// Check for player
-		if (event.getWhoClicked() instanceof Player) {
-			// Check inventory name
-			if (event.getInventory().getName().equalsIgnoreCase("Admin Toolbox")) {
-				// Cancel the click
-				event.setCancelled(true);
+		// Check inventory name
+		if ((event.getWhoClicked() instanceof Player) && event.getView().getTitle().equalsIgnoreCase("Admin Toolbox")) {
+			// Cancel the click
+			event.setCancelled(true);
 
-				final Player player = (Player) event.getWhoClicked();
+			final Player player = (Player) event.getWhoClicked();
 
-				// Look through all the tools
-				for (Tool t : plugin.toolbox.tools) {
-					// If the item matches
-					if (t.item().equals(event.getCurrentItem())) {
-						// Check for a broken item
-						if (t.getLabel().endsWith(Toolbox.broken)) {
-							// Disable it
-							player.sendMessage(ChatColor.RED + "That item is broken, you cannot use it now!");
-							return;
-						}
-						// Execute it
-						t.execute(player);
+			// Look through all the tools
+			for (Tool t : plugin.toolbox.tools) {
+				// If the item matches
+				if (t.item().equals(event.getCurrentItem())) {
+					// Check for a broken item
+					if (t.getLabel().endsWith(Toolbox.broken)) {
+						// Disable it
+						player.sendMessage(ChatColor.RED + "That item is broken, you cannot use it now!");
+						return;
+					}
+					// Execute it
+					t.execute(player);
 
-						// Tell the player
-						player.sendMessage(ChatColor.AQUA + "You activated " + t.item().getItemMeta().getDisplayName());
+					// Tell the player
+					player.sendMessage(ChatColor.AQUA + "You activated " + t.item().getItemMeta().getDisplayName());
 
-						// If console logging is on
-						if (plugin.log) {
-							// Log it
-							plugin.getLogger().info(player.getName() + " use the toolbox to activate: " + t.item().getItemMeta().getDisplayName());
-						}
+					// If console logging is on
+					if (plugin.log) {
+						// Log it
+						plugin.getLogger().info(player.getName() + " use the toolbox to activate: "
+								+ t.item().getItemMeta().getDisplayName());
+					}
 
-						// If we want to close the inventory, then set up a task
-						// to do it.
-						if (plugin.close) {
-							new BukkitRunnable() {
-								// This will close the inventory, but because of
-								// API limitations cannot be called inside the
-								@Override
-								public void run() {
-									player.closeInventory();
-								}
-							}.runTask(plugin);
-						}
+					// If we want to close the inventory, then set up a task
+					// to do it.
+					if (plugin.close) {
+						new BukkitRunnable() {
+							// This will close the inventory, but because of
+							// API limitations cannot be called inside the
+							@Override
+							public void run() {
+								player.closeInventory();
+							}
+						}.runTask(plugin);
 					}
 				}
 			}

@@ -30,7 +30,6 @@ public class AdminToolboxPlugin extends JavaPlugin {
 
 	// This is to keep the warnings away until I find the best way to parse item
 	// types from names instead of ID's
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onEnable() {
 		// Save config
@@ -41,7 +40,7 @@ public class AdminToolboxPlugin extends JavaPlugin {
 
 		// Get values from config (defaults are set here too)
 		log = getConfig().getBoolean("console-log", false);
-		material = Material.getMaterial(getConfig().getInt("wand-id", 369));
+		material = Material.matchMaterial(getConfig().getString("wand-id", "BLAZE_ROD"));
 		close = getConfig().getBoolean("close-toolbox", true);
 
 		// Log values from config
@@ -70,7 +69,7 @@ public class AdminToolboxPlugin extends JavaPlugin {
 	// Check for permission, and open the inventory!
 	public void activate(Player player) {
 		// Check for permission
-		if (!(player.hasPermission("admintoolbox.access"))) {
+		if (!player.hasPermission("admintoolbox.access")) {
 			player.sendMessage(Messages.NO_PERM);
 			return;
 		}
@@ -103,10 +102,9 @@ public class AdminToolboxPlugin extends JavaPlugin {
 			// Check through each metadata value
 			for (MetadataValue value : player.getMetadata("wand")) {
 				// If the name of the owning plugin is us
-				if (value.getOwningPlugin().getName().equalsIgnoreCase(getName())) {
+				if (value.getOwningPlugin().getName().equalsIgnoreCase(getName()))
 					// Return the boolean value inside
 					return value.asBoolean();
-				}
 			}
 		}
 		// If it doesn't exist, create it
@@ -149,13 +147,11 @@ public class AdminToolboxPlugin extends JavaPlugin {
 			}
 		}
 		// If count is same as max inventory size
-		if (count == inv.getSize()) {
+		if (count == inv.getSize())
 			// The inventory is empty
 			return true;
-		} else {
-			// The inventory is not empty
-			return false;
-		}
+		// The inventory is not empty
+		return false;
 	}
 
 }
