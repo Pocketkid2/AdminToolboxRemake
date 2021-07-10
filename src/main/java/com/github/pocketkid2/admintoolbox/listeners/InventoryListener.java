@@ -24,7 +24,7 @@ public class InventoryListener implements Listener {
 	public void onInventoryClick(InventoryClickEvent event) {
 		// Check for player
 		// Check inventory name
-		if ((event.getWhoClicked() instanceof Player) && event.getView().getTitle().equalsIgnoreCase("Admin Toolbox")) {
+		if (event.getWhoClicked() instanceof Player && event.getView().getTitle().equalsIgnoreCase("Admin Toolbox")) {
 			// Cancel the click
 			event.setCancelled(true);
 
@@ -49,7 +49,7 @@ public class InventoryListener implements Listener {
 					// If console logging is on
 					if (plugin.log) {
 						// Log it
-						plugin.getLogger().info(player.getName() + " use the toolbox to activate: "
+						plugin.getLogger().info(player.getName() + " used the toolbox to activate: "
 								+ t.item().getItemMeta().getDisplayName());
 					}
 
