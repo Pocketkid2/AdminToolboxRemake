@@ -1,9 +1,8 @@
 name: ${name}
 version: ${version}
 main: ${groupId}.${artifactId}.AdminToolboxPlugin
-
 author: Pocketkid2
-api-version: 1.17
+api-version: 1.18
 description: Type /atb to open an inventory menu for handy features!
 commands:
     admintoolbox:
